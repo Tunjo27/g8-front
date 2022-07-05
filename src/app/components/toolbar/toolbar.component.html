@@ -1,0 +1,23 @@
+<div>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item class="btn btn-info" (click)="openDialog()">
+                    Ingresar Entrada
+                </button>
+                <button mat-menu-item class="btn btn-info" (click)="editDialog()">
+                    Editar Entrada
+                </button>
+                <button mat-menu-item class="btn btn-info" (click)="openSalidaDialog()">
+                    Ingresar Salida
+                </button>
+                <button mat-menu-item class="btn btn-info" (click)="editSalidaDialog()">
+                    Editar Salida
+                </button>
+            </mat-menu>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</div>

@@ -1,0 +1,66 @@
+<div class="card my-5">
+    <div class="card-body" style="background-color: #343A40">
+      <div class="card-body" style="background-color: white">
+      <input type="text" [(ngModel)]="cargo"  placeholder="Ingrese cargo">
+      <button type="text" class="btn btn-info" (click)="buscarCargo()">Buscar</button>
+            <mat-form-field appearance="fill">
+              <mat-label>Rango Edad</mat-label>
+              <mat-select>
+                <mat-option value="1">16-20</mat-option>
+                <mat-option value="2">21-30</mat-option>
+                <mat-option value="3">31-40</mat-option>
+                <mat-option value="4">41-50</mat-option>
+                <mat-option value="5">51-50</mat-option>
+                <mat-option value="6">61-70</mat-option>
+                <mat-option value="7">71-80</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <form th:action="@{/fecha}" method="get">
+              <div>
+               <label>Desde</label>
+               <input type="date" [(ngModel)]="fechaIngreso"/>
+               <label>Hasta</label>
+               <input type="date" [(ngModel)]="fechaSalida"/>
+               <button type="text" class="btn btn-info" (click)="buscarFechaIngreso()">Buscar</button> 
+              </div>  
+            </form>     
+      </div>      
+    </div>        
+    <div class="card-body" style="background-color: #3F51B5;">      
+      <table class="table table-bordered table-striped" style="background-color: white;">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Cedula</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Cargo</th>
+            <th scope="col">Numero de Celular</th>
+            <th scope="col">Fecha Ingreso</th>
+            <th scope="col">Fecha Salida</th>
+            <th scope="col">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let empleado of empleados">
+            <td>{{ empleado.id }}</td>
+            <td>{{ empleado.nombres }}</td>
+            <td>{{ empleado.apellidos }}</td>
+            <td>{{ empleado.edad }}</td>
+            <td>{{ empleado.cargo }}</td>
+            <td>{{ empleado.numeroCelular }}</td>
+            <td>{{ empleado.fechaIngreso }}</td>
+            <td>{{ empleado.fechaSalida }}</td>
+            <td>
+              <button class="btn btn-danger btn-sm" (click)="eliminarEmpleado()"><mat-icon>delete</mat-icon></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+</mat-paginator>
+    </div>
+  </div>

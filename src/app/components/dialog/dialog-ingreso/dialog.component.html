@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Ingresar Entrada</h1>
+<div mat-dialog-content>
+  <div mat-dialog-content>
+    <form (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label for="id">Cedula</mat-label>
+        <input matInput [formControl]="idFormControl" [(ngModel)]="empleado.id" class="form-control" id="id" name="id"
+          placeholder="Ingrese su cedula">
+        <mat-error *ngIf="idFormControl.hasError('required')">
+          El campo cedula no puede estar vacio
+        </mat-error>
+        <mat-error *ngIf="idFormControl.hasError('pattern')">
+          Debe ingresar valor numerico 
+        </mat-error>
+      </mat-form-field>
+      <div>
+        <button class="btn btn-info" (click)="onNoClick()">Cancelar</button>
+        <button type="submit" class="btn btn-info">Guardar Asistencia</button>
+      </div>
+    </form>     
+  </div>    
+</div>

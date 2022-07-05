@@ -1,0 +1,73 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #empleadoForm="ngForm">
+      <div class="form-group">
+        <mat-label for="id">Cedula</mat-label>
+        <input [formControl]="idFormControl" [(ngModel)]="empleado.id" class="form-control" id="id" name="id"
+          placeholder="Ingrese su cedula">
+        <mat-error *ngIf="idFormControl.hasError('required')">
+          El campo cedula no puede estar vacio
+        </mat-error>
+        <mat-error *ngIf="idFormControl.hasError('pattern')">
+          Debe ingresar valor numerico
+        </mat-error>
+      </div>
+      <div class="form-group">
+        <mat-label for="nombres">Nombres</mat-label>
+        <input [formControl]="nombresFormControl" [(ngModel)]="empleado.nombres" class="form-control" id="nombres"
+          name="nombres" placeholder="Ingrese sus nombres">
+        <mat-error *ngIf="nombresFormControl.hasError('required')">
+          El campo nombres no puede estar vacio
+        </mat-error>
+        <mat-error *ngIf="nombresFormControl.hasError('pattern')">
+          Debe ingresar valor que no sea numerico
+        </mat-error>
+      </div>
+      <div class="form-group">
+        <mat-label for="apellidos">Apellidos</mat-label>
+        <input [formControl]="apellidosFormControl" [(ngModel)]="empleado.apellidos" class="form-control" id="apellidos"
+          name="apellidos" placeholder="Ingrese sus apellidos">
+        <mat-error *ngIf="apellidosFormControl.hasError('required')">
+          El campo apellidos no puede estar vacio
+        </mat-error>
+        <mat-error *ngIf="apellidosFormControl.hasError('pattern')">
+          Debe ingresar valor que no sea numerico
+        </mat-error>
+      </div>
+      <div class="form-group">
+        <mat-label for="edad">Edad</mat-label>
+        <input [formControl]="edadFormControl" [(ngModel)]="empleado.edad" class="form-control" id="edad" name="edad"
+          placeholder="Ingrese su edad">
+        <mat-error *ngIf="edadFormControl.hasError('required')">
+          El campo edad no puede estar vacio
+        </mat-error>
+        <mat-error *ngIf="edadFormControl.hasError('pattern')">
+          Debe ingresar valor numerico
+        </mat-error>
+      </div>
+      <div class="form-group">
+        <mat-label for="cargo">Cargo</mat-label>
+        <input [formControl]="cargoFormControl" [(ngModel)]="empleado.cargo" class="form-control" id="cargo"
+          name="cargo" placeholder="Ingrese su cargo">
+        <mat-error *ngIf="cargoFormControl.hasError('required')">
+          El campo cargo no puede estar vacio
+        </mat-error>
+        <mat-error *ngIf="cargoFormControl.hasError('pattern')">
+          Debe ingresar valor que no sea numerico
+        </mat-error>
+      </div>
+      <div class="form-group">
+        <mat-label for="numeroCelular">Numero de Celular</mat-label>
+        <input [formControl]="numeroCelularFormControl" [(ngModel)]="empleado.numeroCelular" class="form-control"
+          id="numeroCelular" name="numeroCelular" placeholder="Ingrese su numero de celular">
+        <mat-error *ngIf="numeroCelularFormControl.hasError('required')">
+          El campo numero de celular no puede estar vacio
+        </mat-error>
+        <mat-error *ngIf="numeroCelularFormControl.hasError('pattern')">
+          Debe ingresar valor numerico
+        </mat-error>
+      </div>
+      <button type="submit" [disabled]="!empleadoForm.form.valid" class="btn btn-info">Guardar</button>
+    </form>
+  </div>
+</div>
